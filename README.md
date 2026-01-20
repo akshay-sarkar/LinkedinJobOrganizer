@@ -1,0 +1,79 @@
+# LinkedIn Job Alert Organizer
+
+A tool that reads LinkedIn job alert emails and organizes them in an easy-to-use dashboard.
+
+## Features
+
+- Automatically fetch LinkedIn job alerts from Gmail
+- Parse and store job listings in a local database
+- Filter and sort jobs by your criteria
+- Clean dashboard interface to view best matches
+
+## Tech Stack
+
+### Backend
+- Node.js + Express
+- SQLite with Sequelize ORM
+- node-imap for Gmail integration
+- mailparser for email parsing
+
+### Frontend
+- React (with Vite)
+- Tailwind CSS
+- Axios for API calls
+
+## Project Structure
+
+```
+├── backend/          # Express API server
+├── frontend/         # React SPA
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- Gmail account with app password enabled
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd LinkedinJobOrganizer
+```
+
+2. Install backend dependencies
+```bash
+cd backend
+npm install
+cp .env.example .env
+# Edit .env with your Gmail credentials
+```
+
+3. Install frontend dependencies
+```bash
+cd ../frontend
+npm install
+```
+
+4. Run the application
+```bash
+# Terminal 1 - Backend
+cd backend
+npm run dev
+
+# Terminal 2 - Frontend
+cd frontend
+npm run dev
+```
+
+## Configuration
+
+See `backend/.env.example` for required environment variables.
+
+## License
+
+MIT
