@@ -166,19 +166,19 @@ Expected output:
 ✅ Database connection established successfully.
 ✅ Database models synced
 🚀 Server is running!
-📍 URL: http://localhost:5000
+📍 URL: http://localhost:5500
 ```
 
 ### 3. Test It
 
-Open browser: `http://localhost:5000`
+Open browser: `http://localhost:5500`
 
 You should see API info!
 
 ### 4. Fetch Jobs from Gmail
 
 ```bash
-curl -X POST http://localhost:5000/api/jobs/fetch \
+curl -X POST http://localhost:5500/api/jobs/fetch \
   -H "Content-Type: application/json" \
   -d '{"limit": 5}'
 ```
@@ -192,7 +192,7 @@ This will:
 ### 5. View Jobs
 
 ```bash
-curl http://localhost:5000/api/jobs
+curl http://localhost:5500/api/jobs
 ```
 
 See all jobs in JSON format!
@@ -239,9 +239,9 @@ See all jobs in JSON format!
 - Check email is from `jobalerts-noreply@linkedin.com`
 - Look at `rawEmailBody` in database to see what was captured
 
-### "Port 5000 already in use"
+### "Port 5500 already in use"
 - Change `PORT=5001` in `.env`
-- Or kill the process: `lsof -ti:5000 | xargs kill`
+- Or kill the process: `lsof -ti:5500 | xargs kill`
 
 ---
 

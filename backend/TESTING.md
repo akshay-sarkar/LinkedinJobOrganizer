@@ -32,7 +32,7 @@ You should see:
 ✅ Database connection established successfully.
 ✅ Database models synced
 🚀 Server is running!
-📍 URL: http://localhost:5000
+📍 URL: http://localhost:5500
 ```
 
 ---
@@ -42,62 +42,62 @@ You should see:
 ### Method 1: Using Browser
 
 Open your browser and visit:
-- http://localhost:5000 - API info
-- http://localhost:5000/api/health - Health check
-- http://localhost:5000/api/jobs - Get all jobs
+- http://localhost:5500 - API info
+- http://localhost:5500/api/health - Health check
+- http://localhost:5500/api/jobs - Get all jobs
 
 ### Method 2: Using cURL (Terminal)
 
 #### Get all jobs
 ```bash
-curl http://localhost:5000/api/jobs
+curl http://localhost:5500/api/jobs
 ```
 
 #### Fetch new jobs from Gmail
 ```bash
-curl -X POST http://localhost:5000/api/jobs/fetch \
+curl -X POST http://localhost:5500/api/jobs/fetch \
   -H "Content-Type: application/json" \
   -d '{"limit": 5}'
 ```
 
 #### Get job statistics
 ```bash
-curl http://localhost:5000/api/jobs/stats
+curl http://localhost:5500/api/jobs/stats
 ```
 
 #### Update a job (mark as favorite)
 ```bash
-curl -X PUT http://localhost:5000/api/jobs/1 \
+curl -X PUT http://localhost:5500/api/jobs/1 \
   -H "Content-Type: application/json" \
   -d '{"isFavorite": true}'
 ```
 
 #### Delete a job
 ```bash
-curl -X DELETE http://localhost:5000/api/jobs/1
+curl -X DELETE http://localhost:5500/api/jobs/1
 ```
 
 #### Search jobs
 ```bash
-curl "http://localhost:5000/api/jobs?search=developer&limit=10"
+curl "http://localhost:5500/api/jobs?search=developer&limit=10"
 ```
 
 #### Filter jobs by company
 ```bash
-curl "http://localhost:5000/api/jobs?company=Google"
+curl "http://localhost:5500/api/jobs?company=Google"
 ```
 
 #### Get favorites only
 ```bash
-curl "http://localhost:5000/api/jobs?isFavorite=true"
+curl "http://localhost:5500/api/jobs?isFavorite=true"
 ```
 
 ### Method 3: Using Postman or Thunder Client (VS Code Extension)
 
 Import these requests:
 
-**GET** `http://localhost:5000/api/jobs`
-**POST** `http://localhost:5000/api/jobs/fetch`
+**GET** `http://localhost:5500/api/jobs`
+**POST** `http://localhost:5500/api/jobs/fetch`
 Body (JSON):
 ```json
 {
@@ -105,7 +105,7 @@ Body (JSON):
 }
 ```
 
-**PUT** `http://localhost:5000/api/jobs/1`
+**PUT** `http://localhost:5500/api/jobs/1`
 Body (JSON):
 ```json
 {
