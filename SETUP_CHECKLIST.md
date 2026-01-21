@@ -23,13 +23,13 @@
 ### Test Backend
 - [ ] Start server: `npm run dev`
 - [ ] Verify server starts without errors
-- [ ] Open browser to `http://localhost:5000`
-- [ ] Test health endpoint: `http://localhost:5000/api/health`
+- [ ] Open browser to `http://localhost:5500`
+- [ ] Test health endpoint: `http://localhost:5500/api/health`
 - [ ] Test fetch jobs:
   ```bash
-  curl -X POST http://localhost:5000/api/jobs/fetch -H "Content-Type: application/json" -d '{"limit": 5}'
+  curl -X POST http://localhost:5500/api/jobs/fetch -H "Content-Type: application/json" -d '{"limit": 5}'
   ```
-- [ ] Verify jobs appear: `http://localhost:5000/api/jobs`
+- [ ] Verify jobs appear: `http://localhost:5500/api/jobs`
 
 ### Backend Status
 - [ ] ✅ Database connected
@@ -43,7 +43,7 @@
 ## Frontend Setup (Coming Next)
 
 ### Prerequisites
-- [ ] Backend running on port 5000
+- [ ] Backend running on port 5500
 - [ ] Node.js installed
 
 ### Frontend Installation (We'll do this next)
@@ -87,7 +87,7 @@
 - [ ] Check Node.js is installed: `node --version`
 - [ ] Check dependencies installed: `ls node_modules`
 - [ ] Check `.env` file exists
-- [ ] Check port 5000 is not in use: `lsof -i:5000`
+- [ ] Check port 5500 is not in use: `lsof -i:5500`
 
 ### If Gmail connection fails
 - [ ] Verify 2-Step Verification is enabled
@@ -145,8 +145,8 @@ cd backend
 npm run dev
 
 # Test API
-curl http://localhost:5000/api/jobs
-curl -X POST http://localhost:5000/api/jobs/fetch -H "Content-Type: application/json" -d '{"limit": 5}'
+curl http://localhost:5500/api/jobs
+curl -X POST http://localhost:5500/api/jobs/fetch -H "Content-Type: application/json" -d '{"limit": 5}'
 
 # View database
 sqlite3 backend/database/jobs.db

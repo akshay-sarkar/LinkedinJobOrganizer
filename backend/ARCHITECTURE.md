@@ -13,7 +13,7 @@
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                    EXPRESS SERVER (server.js)                    │
-│                     http://localhost:5000                        │
+│                     http://localhost:5500                        │
 │  ┌────────────────────────────────────────────────────────────┐ │
 │  │ Middleware:                                                 │ │
 │  │  • CORS (allow frontend access)                            │ │
