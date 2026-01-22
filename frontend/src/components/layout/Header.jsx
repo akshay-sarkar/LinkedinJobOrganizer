@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '../common/Button';
+import DarkModeToggle from '../common/DarkModeToggle';
 import { jobAPI } from '../../services/api';
 
 /**
@@ -41,14 +42,14 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm px-6 py-4 sticky top-0 z-10">
+    <header className="bg-white dark:bg-gray-800 shadow-sm px-6 py-4 sticky top-0 z-10 transition-colors">
       <div className="flex justify-between items-center">
         {/* Left side - Title */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
             LinkedIn Job Organizer
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Organize your job applications efficiently
           </p>
         </div>
@@ -56,8 +57,9 @@ const Header = () => {
         {/* Right side - Actions */}
         <div className="flex items-center gap-4">
           {message && (
-            <p className="text-sm font-medium">{message}</p>
+            <p className="text-sm font-medium dark:text-gray-300">{message}</p>
           )}
+          <DarkModeToggle />
           <Button
             onClick={handleFetchJobs}
             disabled={loading}

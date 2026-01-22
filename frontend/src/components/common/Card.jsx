@@ -12,7 +12,7 @@
 const Card = ({ children, className = '', onClick }) => {
   return (
     <div
-      className={`bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow ${className}`}
+      className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-all dark:text-gray-100 ${className}`}
       onClick={onClick}
     >
       {children}
