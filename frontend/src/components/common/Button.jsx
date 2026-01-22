@@ -24,7 +24,7 @@ const Button = ({
   // Variant styles (color schemes)
   const variants = {
     primary: 'bg-linkedin-blue text-white hover:bg-linkedin-dark',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600',
     success: 'bg-green-500 text-white hover:bg-green-600',
     danger: 'bg-red-500 text-white hover:bg-red-600',
     outline: 'border-2 border-linkedin-blue text-linkedin-blue hover:bg-linkedin-blue hover:text-white',

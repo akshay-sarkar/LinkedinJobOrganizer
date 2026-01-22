@@ -253,6 +253,30 @@ const deleteJob = async (req, res) => {
 };
 
 /**
+ * Delete all jobs
+ * DELETE /api/jobs/deleteAll
+ */
+const deleteAllJobs = async (req, res) => {
+  try {
+    await Job.destroy({
+      where: {},
+    });
+
+    res.json({
+      success: true,
+      message: 'All jobs deleted successfully',
+    });
+  } catch (error) {
+    console.error('Error deleting all jobs:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to delete all jobs',
+      error: error.message,
+    });
+  }
+};
+
+/**
  * Get dashboard statistics
  * GET /api/jobs/stats
  */
@@ -305,5 +329,6 @@ export {
   fetchNewJobs,
   updateJob,
   deleteJob,
+  deleteAllJobs,
   getJobStats,
 };

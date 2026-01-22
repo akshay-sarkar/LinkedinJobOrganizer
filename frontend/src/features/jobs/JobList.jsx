@@ -142,7 +142,7 @@ const JobList = () => {
   return (
     <div>
       {/* Filters Section */}
-      <div className="mb-6 bg-white p-6 rounded-lg shadow-sm space-y-4">
+      <div className="mb-6 bg-white p-6 rounded-lg shadow-sm space-y-4 dark:bg-gray-800 transition-colors duration-200">
         {/* Search and Filter Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           <div className="md:col-span-2">
@@ -151,7 +151,7 @@ const JobList = () => {
               placeholder="Search jobs by title, company, or location..."
               value={filters.search}
               onChange={handleSearchChange}
-              label="Search"
+              wrapperClassName=""
             />
           </div>
 
@@ -175,13 +175,13 @@ const JobList = () => {
         {/* Sort and Date Range Controls */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end border-t pt-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
               Sort By
             </label>
             <select
               value={`${sortBy}-${sortOrder}`}
               onChange={handleSortChange}
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-linkedin-blue dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             >
               <option value="createdAt-DESC">Newest First</option>
               <option value="createdAt-ASC">Oldest First</option>
@@ -193,19 +193,19 @@ const JobList = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
               Start Date
             </label>
             <input
               type="date"
               value={dateRange.start}
               onChange={(e) => handleDateRangeChange('start', e.target.value)}
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-linkedin-blue dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
               End Date
             </label>
             <div className="flex gap-2">
@@ -213,12 +213,12 @@ const JobList = () => {
                 type="date"
                 value={dateRange.end}
                 onChange={(e) => handleDateRangeChange('end', e.target.value)}
-                className="flex-1 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-linkedin-blue"
+                className="flex-1 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-linkedin-blue dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
               {(dateRange.start || dateRange.end) && (
                 <button
                   onClick={clearDateRange}
-                  className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded text-sm"
+                  className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
                   title="Clear date range"
                 >
                   ✕
@@ -231,9 +231,9 @@ const JobList = () => {
 
       {/* Job Count and Export */}
       <div className="mb-4 flex justify-between items-center">
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-400">
           Showing <span className="font-bold">{jobs.length}</span> jobs
-          {isFiltering && <span className="ml-2 text-sm text-gray-400">(updating...)</span>}
+          {isFiltering && <span className="ml-2 text-sm text-gray-400 dark:text-gray-500">(updating...)</span>}
         </p>
         <Button
           onClick={exportToCSV}
@@ -249,14 +249,14 @@ const JobList = () => {
       <div className="relative">
         {/* Inline loading overlay for filter updates */}
         {isFiltering && (
-          <div className="absolute inset-0 bg-white/70 z-10 flex items-center justify-center rounded-lg">
+          <div className="absolute inset-0 bg-white/70 dark:bg-gray-900/70 z-10 flex items-center justify-center rounded-lg">
             <Loading size="md" text="Updating results..." />
           </div>
         )}
 
         {jobs.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-xl text-gray-500">
+            <p className="text-xl text-gray-500 dark:text-gray-400">
               No jobs found. Try fetching new jobs from email!
             </p>
           </div>

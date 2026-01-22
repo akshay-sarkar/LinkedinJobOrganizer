@@ -45,8 +45,8 @@ const Dashboard = () => {
     <div>
       {/* Page Title */}
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Dashboard</h2>
-        <p className="text-gray-600">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2 dark:text-white">Dashboard</h2>
+        <p className="text-gray-600 dark:text-gray-300">
           Overview of your job applications
         </p>
       </div>
@@ -82,7 +82,7 @@ const Dashboard = () => {
       {/* Top Companies */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-white">
             Top Companies
           </h3>
           {stats.topCompanies && stats.topCompanies.length > 0 ? (
@@ -90,9 +90,9 @@ const Dashboard = () => {
               {stats.topCompanies.map((company, index) => (
                 <li
                   key={index}
-                  className="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
+                  className="flex justify-between items-center p-3 bg-gray-50 rounded-lg dark:bg-gray-700/50"
                 >
-                  <span className="font-medium text-gray-700">
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
                     {company.company}
                   </span>
                   <span className="text-sm bg-linkedin-blue text-white px-3 py-1 rounded-full">
@@ -108,36 +108,36 @@ const Dashboard = () => {
 
         {/* Quick Actions */}
         <Card>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-white">
             Quick Actions
           </h3>
           <div className="space-y-3">
             <a
               href="/jobs"
-              className="block p-4 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
+              className="block p-4 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors dark:bg-blue-900/20 dark:hover:bg-blue-900/30"
             >
-              <p className="font-medium text-linkedin-blue">
+              <p className="font-medium text-linkedin-blue dark:text-blue-400">
                 📋 View All Jobs
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 Browse and manage all your job applications
               </p>
             </a>
             <a
               href="/jobs?filter=favorites"
-              className="block p-4 bg-yellow-50 hover:bg-yellow-100 rounded-lg transition-colors"
+              className="block p-4 bg-yellow-50 hover:bg-yellow-100 rounded-lg transition-colors dark:bg-yellow-900/20 dark:hover:bg-yellow-900/30"
             >
-              <p className="font-medium text-yellow-700">⭐ View Favorites</p>
-              <p className="text-sm text-gray-600">
+              <p className="font-medium text-yellow-700 dark:text-yellow-400">⭐ View Favorites</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 See jobs you've marked as favorites
               </p>
             </a>
             <a
               href="/jobs?filter=pending"
-              className="block p-4 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors"
+              className="block p-4 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors dark:bg-purple-900/20 dark:hover:bg-purple-900/30"
             >
-              <p className="font-medium text-purple-700">⏳ Pending Jobs</p>
-              <p className="text-sm text-gray-600">
+              <p className="font-medium text-purple-700 dark:text-purple-400">⏳ Pending Jobs</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 Jobs you haven't applied to yet
               </p>
             </a>

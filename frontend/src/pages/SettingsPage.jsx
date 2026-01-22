@@ -9,8 +9,8 @@ const SettingsPage = () => {
     <div>
       {/* Page Title */}
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Settings</h2>
-        <p className="text-gray-600">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2 dark:text-white">Settings</h2>
+        <p className="text-gray-600 dark:text-gray-300">
           Configuration and application info
         </p>
       </div>
@@ -19,7 +19,7 @@ const SettingsPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* About */}
         <Card>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-white">
             📖 About This App
           </h3>
           <p className="text-gray-600 mb-4">
@@ -27,7 +27,7 @@ const SettingsPage = () => {
             automatically fetching LinkedIn job alerts from your Gmail and
             organizing them in an easy-to-use dashboard.
           </p>
-          <div className="space-y-2 text-sm text-gray-600">
+          <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
             <p>
               <strong>Version:</strong> 1.0.0
             </p>
@@ -42,10 +42,10 @@ const SettingsPage = () => {
 
         {/* How to Use */}
         <Card>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-white">
             📚 How to Use
           </h3>
-          <ol className="space-y-3 text-gray-600">
+          <ol className="space-y-3 text-gray-600 dark:text-gray-300">
             <li className="flex gap-3">
               <span className="font-bold text-linkedin-blue">1.</span>
               <span>
@@ -75,19 +75,19 @@ const SettingsPage = () => {
 
         {/* Backend Status */}
         <Card>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-white">
             🔧 Backend Configuration
           </h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
-              <span className="text-gray-700">Backend URL</span>
-              <code className="text-sm bg-gray-200 px-2 py-1 rounded">
+            <div className="flex items-center justify-between p-3 bg-gray-50 rounded dark:bg-gray-700/50">
+              <span className="text-gray-700 dark:text-gray-300">Backend URL</span>
+              <code className="text-sm bg-gray-200 px-2 py-1 rounded dark:bg-gray-600 dark:text-white">
                 http://localhost:5500
               </code>
             </div>
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
-              <span className="text-gray-700">Frontend URL</span>
-              <code className="text-sm bg-gray-200 px-2 py-1 rounded">
+            <div className="flex items-center justify-between p-3 bg-gray-50 rounded dark:bg-gray-700/50">
+              <span className="text-gray-700 dark:text-gray-300">Frontend URL</span>
+              <code className="text-sm bg-gray-200 px-2 py-1 rounded dark:bg-gray-600 dark:text-white">
                 http://localhost:5173
               </code>
             </div>
@@ -100,8 +100,8 @@ const SettingsPage = () => {
 
         {/* Tips */}
         <Card>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">💡 Tips</h3>
-          <ul className="space-y-2 text-gray-600">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-white">💡 Tips</h3>
+          <ul className="space-y-2 text-gray-600 dark:text-gray-300">
             <li className="flex gap-2">
               <span>⭐</span>
               <span>

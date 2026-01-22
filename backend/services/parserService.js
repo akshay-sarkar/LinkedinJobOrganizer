@@ -134,9 +134,21 @@ const parseHTMLContent = (html, subject, date) => {
       seenUrls.add(href);
 
       // Get the link text as potential job title
-      let title = cleanText($link.text());
+      let title = '';
 
-      // If link text is not a valid title, look for nearby text
+      // Strategy 0: Look for specific title elements INSIDE the link first
+      // This handles cases where the link wraps the whole card
+      const $internalHeading = $link.find('h1, h2, h3, h4, div.font-bold, strong, b').first();
+      if ($internalHeading.length) {
+        title = cleanText($internalHeading.text());
+      }
+
+      // Fallback: Use link text if no internal heading found
+      if (!title || !isValidJobTitle(title)) {
+        title = cleanText($link.text());
+      }
+
+      // If text is still not a valid title, look for nearby text
       if (!isValidJobTitle(title)) {
         // Look for title in parent or sibling elements
         const $parent = $link.parent();
@@ -157,12 +169,37 @@ const parseHTMLContent = (html, subject, date) => {
 
       // Strategy 1: Look for text after "at" or "·" pattern
       const $container = $link.closest('tr, div, td').first();
+      // Get text from likely container elements, preserving structure
       const containerText = $container.text();
 
       // Pattern: "Job Title at Company Name"
       const atMatch = containerText.match(/at\s+([A-Za-z][A-Za-z0-9\s&.,'-]+?)(?:\s*[·|•|\-|–]|\s*\n|$)/i);
       if (atMatch && isValidCompany(atMatch[1])) {
         company = cleanText(atMatch[1]);
+      }
+
+      // Strategy 1.5: Look for "Company · Location" pattern in specific elements
+      if (!company) {
+        // Instead of checking the whole container text (which includes title), 
+        // check individual text nodes or elements for the pattern
+        $container.find('*').each((i, el) => {
+          if (company) return;
+          const $el = $(el);
+          // Only check leaf elements (no children) to avoid checking container text
+          if ($el.children().length > 0) return;
+
+          // Check identifying children directly to avoid merging unrelated text
+          const text = $el.text();
+          const dotMatch = text.match(/^\s*([A-Za-z0-9\s&.,'-]+?)\s+[·|•]\s+([A-Za-z\s,()]+)/);
+
+          if (dotMatch) {
+            const potentialCompany = cleanText(dotMatch[1]);
+            // Validate: company shouldn't be the same as title, and should be short
+            if (isValidCompany(potentialCompany) && potentialCompany !== title && potentialCompany.length < 50) {
+              company = potentialCompany;
+            }
+          }
+        });
       }
 
       // Strategy 2: Look for company in sibling/nearby elements
@@ -174,8 +211,8 @@ const parseHTMLContent = (html, subject, date) => {
           const sibText = cleanText($(sib).text());
           // Company names are usually short and don't look like job titles
           if (sibText.length > 2 && sibText.length < 100 &&
-              !sibText.includes('ago') && !sibText.includes('Applied') &&
-              isValidCompany(sibText)) {
+            !sibText.includes('ago') && !sibText.includes('Applied') &&
+            isValidCompany(sibText)) {
             company = sibText;
           }
         });
@@ -188,7 +225,7 @@ const parseHTMLContent = (html, subject, date) => {
           if (company) return;
           const alt = $(img).attr('alt');
           if (alt && alt.length > 2 && alt.length < 100 &&
-              !alt.toLowerCase().includes('linkedin') && isValidCompany(alt)) {
+            !alt.toLowerCase().includes('linkedin') && isValidCompany(alt)) {
             company = cleanText(alt);
           }
         });
@@ -203,12 +240,37 @@ const parseHTMLContent = (html, subject, date) => {
         location = cleanText(locationMatch[1]);
       }
 
+      // Strategy: Look for "Company · Location" pattern again for location
+      if (!location) {
+        const dotMatch = containerText.match(/[·|•]\s+([A-Za-z\s,()]+)/);
+        if (dotMatch) {
+          // Heuristic: location often contains City or (Remote/Hybrid)
+          const text = cleanText(dotMatch[1]);
+          if (text.includes(',') || text.includes('(') || text.length < 50) {
+            location = text;
+          }
+        }
+      }
+
       // Alternative location pattern: look for Remote, Hybrid, etc.
       if (!location) {
-        const remoteMatch = containerText.match(/(Remote|Hybrid|On-site|Onsite)(?:\s+in\s+([^·\n]+))?/i);
+        // Capture "Stockholm (Hybrid)" or just "Hybrid"
+        const remoteMatch = containerText.match(/([A-Z][a-zA-Z\s]+)\s*\((Remote|Hybrid|On-site|Onsite)\)/i);
         if (remoteMatch) {
           location = cleanText(remoteMatch[0]);
+        } else {
+          const simpleRemote = containerText.match(/(Remote|Hybrid|On-site|Onsite)(?:\s+in\s+([^·\n]+))?/i);
+          if (simpleRemote) {
+            location = cleanText(simpleRemote[0]);
+          }
         }
+      }
+
+      // Check for Easy Apply
+      let isEasyApply = false;
+      const easyApplyMatch = containerText.match(/Easy Apply/i);
+      if (easyApplyMatch) {
+        isEasyApply = true;
       }
 
       // Only add if we have a valid title
@@ -220,6 +282,7 @@ const parseHTMLContent = (html, subject, date) => {
           jobUrl: href,
           emailSubject: subject,
           emailDate: date,
+          isEasyApply: isEasyApply,
           rawEmailBody: html, // Store full HTML, no character limit
         };
         jobs.push(job);
@@ -408,10 +471,23 @@ const parseTextContent = (text, subject, date) => {
  * @returns {Object} Cleaned job object
  */
 const cleanJobData = (job) => {
+  let location = job.location?.trim() || null;
+
+  if (location) {
+    // Regex to identify noise at the end of the location string
+    // Handles case-insensitivity, partial matches (like "Actively r"), and explicit requested patterns
+    const noisePattern = /(?:\s+|^)(?:Actively|Easy App|Be an early|See more|View job|\(On|\d*[a-z]?\s+ago|\bago).*/i;
+
+    location = location.replace(noisePattern, '').trim();
+
+    // Clean up any double spaces created
+    location = location.replace(/\s+/g, ' ').trim();
+  }
+
   return {
     title: job.title?.trim() || 'N/A',
     company: job.company?.trim() || 'Unknown Company',
-    location: job.location?.trim() || null,
+    location: location,
     jobUrl: job.jobUrl || null,
     description: job.description?.trim() || null,
     employmentType: job.employmentType || null,
@@ -420,6 +496,7 @@ const cleanJobData = (job) => {
     emailSubject: job.emailSubject || null,
     emailDate: job.emailDate || new Date(),
     rawEmailBody: job.rawEmailBody || null,
+    isEasyApply: job.isEasyApply || false,
   };
 };
 

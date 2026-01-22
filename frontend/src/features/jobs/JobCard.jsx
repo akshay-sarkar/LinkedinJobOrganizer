@@ -47,17 +47,17 @@ const JobCard = ({ job, onUpdate }) => {
   };
 
   return (
-    <Card className="hover:shadow-xl transition-shadow">
+    <Card className="hover:shadow-xl transition-shadow dark:bg-gray-800 border dark:border-gray-700">
       {/* Header - Title and Favorite */}
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-gray-800 mb-1">{job.title}</h3>
-          <p className="text-lg text-gray-600">{job.company}</p>
+          <h3 className="text-xl font-bold text-gray-800 mb-1 dark:text-white">{job.title}</h3>
+          <p className="text-lg text-gray-600 dark:text-gray-300">{job.company}</p>
         </div>
         <button
           onClick={handleToggleFavorite}
           disabled={updating}
-          className="text-2xl hover:scale-110 transition-transform"
+          className="text-2xl hover:scale-110 transition-transform dark:text-yellow-400"
         >
           {job.isFavorite ? '⭐' : '☆'}
         </button>
@@ -65,11 +65,12 @@ const JobCard = ({ job, onUpdate }) => {
 
       {/* Location */}
       {job.location && (
-        <p className="text-sm text-gray-500 mb-3">📍 {job.location}</p>
+        <p className="text-sm text-gray-500 mb-3 dark:text-gray-400">📍 {job.location}</p>
       )}
 
       {/* Badges */}
       <div className="flex flex-wrap gap-2 mb-4">
+        {job.isEasyApply && <Badge variant="success">Easy Apply</Badge>}
         {job.isApplied && <Badge variant="success">✓ Applied</Badge>}
         {job.isFavorite && <Badge variant="warning">⭐ Favorite</Badge>}
         {job.isRejected && <Badge variant="danger">✗ Rejected</Badge>}
