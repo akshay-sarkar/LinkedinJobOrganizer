@@ -142,7 +142,7 @@ const JobList = () => {
   return (
     <div>
       {/* Filters Section */}
-      <div className={`mb-6 bg-white p-6 rounded-lg shadow-sm space-y-4 ${isFiltering ? 'opacity-70' : ''}`}>
+      <div className="mb-6 bg-white p-6 rounded-lg shadow-sm space-y-4">
         {/* Search and Filter Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           <div className="md:col-span-2">
@@ -246,19 +246,28 @@ const JobList = () => {
       </div>
 
       {/* Job Grid */}
-      {jobs.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-xl text-gray-500">
-            No jobs found. Try fetching new jobs from email!
-          </p>
-        </div>
-      ) : (
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${isFiltering ? 'opacity-50 pointer-events-none' : ''}`}>
-          {jobs.map((job) => (
-            <JobCard key={job.id} job={job} onUpdate={() => fetchJobs(false)} />
-          ))}
-        </div>
-      )}
+      <div className="relative">
+        {/* Inline loading overlay for filter updates */}
+        {isFiltering && (
+          <div className="absolute inset-0 bg-white/70 z-10 flex items-center justify-center rounded-lg">
+            <Loading size="md" text="Updating results..." />
+          </div>
+        )}
+
+        {jobs.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-xl text-gray-500">
+              No jobs found. Try fetching new jobs from email!
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {jobs.map((job) => (
+              <JobCard key={job.id} job={job} onUpdate={() => fetchJobs(false)} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
