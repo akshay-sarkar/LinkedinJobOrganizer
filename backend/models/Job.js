@@ -63,6 +63,12 @@ const Job = sequelize.define('Job', {
     allowNull: true,
   },
 
+  // Job attributes
+  isEasyApply: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+
   // User interactions
   isFavorite: {
     type: DataTypes.BOOLEAN,

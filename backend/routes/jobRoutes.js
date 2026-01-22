@@ -5,6 +5,7 @@ import {
   fetchNewJobs,
   updateJob,
   deleteJob,
+  deleteAllJobs,
   getJobStats,
 } from '../controllers/jobController.js';
 
@@ -24,6 +25,9 @@ router.post('/fetch', fetchNewJobs);
 
 // PUT /api/jobs/:id - Update job
 router.put('/:id', updateJob);
+
+// DELETE /api/jobs/deleteAll - Delete all jobs
+router.delete('/deleteAll', deleteAllJobs);
 
 // DELETE /api/jobs/:id - Delete job
 router.delete('/:id', deleteJob);

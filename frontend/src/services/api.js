@@ -48,6 +48,9 @@ export const jobAPI = {
   // Delete job
   delete: (id) => api.delete(`/jobs/${id}`),
 
+  // Delete all jobs
+  deleteAll: () => api.delete('/jobs/deleteAll'),
+
   // Get statistics
   getStats: () => api.get('/jobs/stats'),
 };
