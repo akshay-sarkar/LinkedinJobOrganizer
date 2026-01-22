@@ -60,10 +60,11 @@
         "Loading indicator does not block filter form interaction"
       ],
       "priority": 4,
-      "passes": false,
+      "passes": true,
       "dependsOn": [
         "US-003"
-      ]
+      ],
+      "completionNotes": "Completed by agent"
     },
     {
       "id": "US-005",
@@ -75,13 +76,14 @@
         "No regression in existing filter, sort, or date range functionality"
       ],
       "priority": 5,
-      "passes": false,
+      "passes": true,
       "dependsOn": [
         "US-004"
-      ]
+      ],
+      "completionNotes": "Completed by agent"
     }
   ],
   "metadata": {
-    "updatedAt": "2026-01-22T03:21:48.517Z"
+    "updatedAt": "2026-01-22T03:27:06.090Z"
   }
 }

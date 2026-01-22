@@ -309,7 +309,6 @@ const variants = {
 Optional features you can add:
 
 ### Easy Additions
-- [ ] Dark mode toggle
 - [ ] Sort jobs (by date, company, etc.)
 - [ ] Filter by date range
 - [ ] Export jobs to CSV

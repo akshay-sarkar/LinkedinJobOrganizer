@@ -1,18 +1,9 @@
 import { useState } from 'react';
 import Button from '../common/Button';
-import DarkModeToggle from '../common/DarkModeToggle';
 import { jobAPI } from '../../services/api';
 
 /**
  * Header Component
- *
- * Tailwind Layout Classes:
- * - flex = display: flex
- * - justify-between = space-between (left and right alignment)
- * - items-center = vertical center alignment
- * - bg-white = white background
- * - shadow-sm = small shadow
- * - px-6 py-4 = padding
  */
 
 const Header = () => {
@@ -42,14 +33,14 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm px-6 py-4 sticky top-0 z-10 transition-colors">
+    <header className="bg-white shadow-sm px-6 py-4 sticky top-0 z-10">
       <div className="flex justify-between items-center">
         {/* Left side - Title */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+          <h1 className="text-2xl font-bold text-gray-800">
             LinkedIn Job Organizer
           </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500">
             Organize your job applications efficiently
           </p>
         </div>
@@ -57,9 +48,8 @@ const Header = () => {
         {/* Right side - Actions */}
         <div className="flex items-center gap-4">
           {message && (
-            <p className="text-sm font-medium dark:text-gray-300">{message}</p>
+            <p className="text-sm font-medium">{message}</p>
           )}
-          <DarkModeToggle />
           <Button
             onClick={handleFetchJobs}
             disabled={loading}
