@@ -2,11 +2,6 @@ import Card from '../../components/common/Card';
 
 /**
  * Stats Card Component - Display a single statistic
- *
- * Tailwind Classes:
- * - text-3xl = extra large text
- * - font-bold = bold font
- * - mb-2 = margin bottom
  */
 
 const StatsCard = ({ title, value, icon, color = 'blue' }) => {

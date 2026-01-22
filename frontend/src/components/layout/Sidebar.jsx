@@ -2,19 +2,13 @@ import { NavLink } from 'react-router-dom';
 
 /**
  * Sidebar Navigation Component
- *
- * Tailwind Classes Explained:
- * - h-screen = height: 100vh (full screen height)
- * - bg-gray-50 = light gray background
- * - border-r = right border
- * - space-y-2 = vertical spacing between children
  */
 
 const Sidebar = () => {
   const navItems = [
-    { path: '/', label: '📊 Dashboard', icon: '📊' },
-    { path: '/jobs', label: '💼 All Jobs', icon: '💼' },
-    { path: '/settings', label: '⚙️ Settings', icon: '⚙️' },
+    { path: '/', label: 'Dashboard', icon: '📊' },
+    { path: '/jobs', label: 'All Jobs', icon: '💼' },
+    { path: '/settings', label: 'Settings', icon: '⚙️' },
   ];
 
   return (
@@ -26,10 +20,9 @@ const Sidebar = () => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    isActive
-                      ? 'bg-linkedin-blue text-white'
-                      : 'text-gray-700 hover:bg-gray-200'
+                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${isActive
+                    ? 'bg-linkedin-blue text-white'
+                    : 'text-gray-700 hover:bg-gray-200'
                   }`
                 }
               >

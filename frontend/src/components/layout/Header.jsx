@@ -4,14 +4,6 @@ import { jobAPI } from '../../services/api';
 
 /**
  * Header Component
- *
- * Tailwind Layout Classes:
- * - flex = display: flex
- * - justify-between = space-between (left and right alignment)
- * - items-center = vertical center alignment
- * - bg-white = white background
- * - shadow-sm = small shadow
- * - px-6 py-4 = padding
  */
 
 const Header = () => {

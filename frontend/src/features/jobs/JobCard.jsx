@@ -6,10 +6,6 @@ import { jobAPI } from '../../services/api';
 
 /**
  * Job Card Component - Displays a single job
- *
- * Tailwind Grid Classes:
- * - grid grid-cols-2 = 2 column grid
- * - gap-4 = spacing between grid items
  */
 
 const JobCard = ({ job, onUpdate }) => {
@@ -19,7 +15,7 @@ const JobCard = ({ job, onUpdate }) => {
     setUpdating(true);
     try {
       await jobAPI.update(job.id, { isFavorite: !job.isFavorite });
-      onUpdate(); // Refresh the job list
+      onUpdate();
     } catch (error) {
       console.error('Error updating job:', error);
     } finally {

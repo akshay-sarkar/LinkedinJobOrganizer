@@ -1,0 +1,89 @@
+{
+  "name": "Fix Search Input Focus Loss Bug",
+  "branchName": "fix/search-input-focus-loss",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Add separate loading states to JobList component",
+      "description": "As a developer, I want to separate initial loading from filter loading so that the form remains mounted during filter updates.",
+      "acceptanceCriteria": [
+        "Add initialLoading state variable for first mount loading",
+        "Add isFiltering state variable for subsequent filter-triggered fetches",
+        "initialLoading is true only until first successful fetch completes",
+        "isFiltering is true during filter/sort/search updates"
+      ],
+      "priority": 1,
+      "passes": true,
+      "dependsOn": [],
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-002",
+      "title": "Update fetchJobs to use appropriate loading states",
+      "description": "As a developer, I want fetchJobs to set the correct loading state based on whether it's the initial load or a filter update.",
+      "acceptanceCriteria": [
+        "Initial load sets initialLoading to true",
+        "Filter updates set isFiltering to true instead of replacing the entire component",
+        "Loading states are properly reset on fetch completion"
+      ],
+      "priority": 2,
+      "passes": true,
+      "dependsOn": [
+        "US-001"
+      ],
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-003",
+      "title": "Update render logic to keep form mounted during filtering",
+      "description": "As a user, I want the search/filter form to remain visible and interactive while results are loading so I don't lose focus.",
+      "acceptanceCriteria": [
+        "Full-page Loading component only shows when initialLoading is true",
+        "Filter form (search, sort, date range) remains mounted when isFiltering is true",
+        "User can type continuously in search input without losing cursor focus",
+        "Filter controls remain interactive during loading"
+      ],
+      "priority": 3,
+      "passes": true,
+      "dependsOn": [
+        "US-002"
+      ],
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-004",
+      "title": "Add inline loading indicator for results grid",
+      "description": "As a user, I want to see a loading indicator on the results area when filters are updating so I know the system is responding.",
+      "acceptanceCriteria": [
+        "Loading indicator/overlay appears over the job results grid during filter updates",
+        "Initial page load can still show full-page loading state",
+        "Loading indicator does not block filter form interaction"
+      ],
+      "priority": 4,
+      "passes": true,
+      "dependsOn": [
+        "US-003"
+      ],
+      "completionNotes": "Completed by agent"
+    },
+    {
+      "id": "US-005",
+      "title": "Verify search input maintains focus during typing",
+      "description": "As a QA tester, I want to verify that the search input focus bug is fixed and search results update properly.",
+      "acceptanceCriteria": [
+        "User can type full search query without focus interruption",
+        "Search results update as user types",
+        "No regression in existing filter, sort, or date range functionality"
+      ],
+      "priority": 5,
+      "passes": true,
+      "dependsOn": [
+        "US-004"
+      ],
+      "completionNotes": "Completed by agent"
+    }
+  ],
+  "metadata": {
+    "updatedAt": "2026-01-22T03:27:06.090Z"
+  }
+}

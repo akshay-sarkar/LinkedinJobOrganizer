@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "sessionId": "20a5a145-728f-4a14-894d-68137feae771",
+  "status": "running",
+  "startedAt": "2026-01-22T03:32:07.701Z",
+  "updatedAt": "2026-01-22T03:32:07.701Z",
+  "currentIteration": 0,
+  "maxIterations": 5,
+  "tasksCompleted": 0,
+  "isPaused": false,
+  "agentPlugin": "claude",
+  "trackerState": {
+    "plugin": "json",
+    "prdPath": "./tasks/prd.json",
+    "totalTasks": 5,
+    "tasks": [
+      {
+        "id": "US-001",
+        "title": "Add separate loading states to JobList component",
+        "status": "completed",
+        "completedInSession": false
+      },
+      {
+        "id": "US-002",
+        "title": "Update fetchJobs to use appropriate loading states",
+        "status": "completed",
+        "completedInSession": false
+      },
+      {
+        "id": "US-003",
+        "title": "Update render logic to keep form mounted during filtering",
+        "status": "completed",
+        "completedInSession": false
+      },
+      {
+        "id": "US-004",
+        "title": "Add inline loading indicator for results grid",
+        "status": "completed",
+        "completedInSession": false
+      },
+      {
+        "id": "US-005",
+        "title": "Verify search input maintains focus during typing",
+        "status": "completed",
+        "completedInSession": false
+      }
+    ]
+  },
+  "iterations": [],
+  "skippedTaskIds": [],
+  "cwd": "/Users/akshaysarkar/Documents/Claude/LinkedinJobOrganizer",
+  "activeTaskIds": [],
+  "subagentPanelVisible": false
+}

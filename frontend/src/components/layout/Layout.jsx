@@ -4,11 +4,6 @@ import Sidebar from './Sidebar';
 /**
  * Main Layout Component
  * Wraps all pages with Header and Sidebar
- *
- * Tailwind Layout:
- * - flex = flexbox layout
- * - flex-col = column direction (stack vertically)
- * - min-h-screen = minimum height 100vh
  */
 
 const Layout = ({ children }) => {
