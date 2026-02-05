@@ -180,7 +180,7 @@ npm run dev
 If you get stuck:
 1. Check `backend/TESTING.md` for detailed testing steps
 2. Check `backend/ARCHITECTURE.md` for system flow
-3. Read `BACKEND_SUMMARY.md` for overview
+3. Read `plans/architecture/backend.md` for overview
 4. Review error messages carefully
 5. Check `.env` file configuration
 

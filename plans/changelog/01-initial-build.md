@@ -65,11 +65,11 @@ LinkedinJobOrganizer/
 ├── 📚 Documentation (Root)
 │   ├── README.md                        # Project overview
 │   ├── QUICK_START.md                   # 5-minute setup guide
-│   ├── SETUP_CHECKLIST.md               # Step-by-step checklist
-│   ├── BACKEND_SUMMARY.md               # Backend details
-│   ├── FRONTEND_SUMMARY.md              # Frontend details
-│   ├── Gmail_App_Password_Setup_Guide.md # Gmail setup
-│   └── PROJECT_COMPLETE.md              # This file!
+│   ├── plans/setup/checklist.md          # Step-by-step checklist
+│   ├── plans/architecture/backend.md    # Backend details
+│   ├── plans/architecture/frontend.md   # Frontend details
+│   ├── plans/setup/gmail-setup.md       # Gmail setup
+│   └── plans/changelog/01-initial-build.md # This file!
 │
 ├── 🔧 Backend (Node.js + Express)
 │   ├── config/
@@ -244,12 +244,12 @@ npm run dev
 
 ### For Setup
 1. **START HERE:** `QUICK_START.md` - Get running in 5 minutes
-2. `SETUP_CHECKLIST.md` - Detailed step-by-step checklist
-3. `Gmail_App_Password_Setup_Guide.md` - Gmail configuration
+2. `plans/setup/checklist.md` - Detailed step-by-step checklist
+3. `plans/setup/gmail-setup.md` - Gmail configuration
 
 ### For Understanding
-4. `BACKEND_SUMMARY.md` - Backend explanation
-5. `FRONTEND_SUMMARY.md` - Frontend explanation + Tailwind guide
+4. `plans/architecture/backend.md` - Backend explanation
+5. `plans/architecture/frontend.md` - Frontend explanation + Tailwind guide
 6. `backend/ARCHITECTURE.md` - System architecture diagrams
 
 ### For Testing

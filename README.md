@@ -75,6 +75,18 @@ npm run dev
 
 See `backend/.env.example` for required environment variables.
 
+## Documentation
+
+All project documentation lives in the [`plans/`](plans/) folder:
+
+- **[Architecture](plans/architecture/)** — backend and frontend summaries
+- **[Setup Guides](plans/setup/)** — installation checklist, Gmail app password guide
+- **[Changelog](plans/changelog/)** — history of major changes
+- **[PRDs](plans/prds/)** — product requirements documents
+- **[Roadmap](plans/roadmap.md)** — planned features and backlog
+
+See [`plans/README.md`](plans/README.md) for the full index.
+
 ## License
 
 MIT

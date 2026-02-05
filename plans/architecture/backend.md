@@ -146,7 +146,7 @@ Job.findAll({
 
 ### 1. Configure Gmail
 
-Follow: `Gmail_App_Password_Setup_Guide.md`
+Follow: `plans/setup/gmail-setup.md`
 
 Edit `backend/.env`:
 ```

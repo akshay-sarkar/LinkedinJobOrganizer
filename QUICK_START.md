@@ -26,7 +26,7 @@ Get your LinkedIn Job Organizer up and running in 5 minutes!
 4. Click **Generate**
 5. **Copy the 16-character password** (you won't see it again!)
 
-📖 Detailed guide: `Gmail_App_Password_Setup_Guide.md`
+📖 Detailed guide: [`plans/setup/gmail-setup.md`](plans/setup/gmail-setup.md)
 
 ---
 
@@ -151,11 +151,13 @@ npm run dev
 
 ## 📖 More Documentation
 
-- **Backend Details:** `BACKEND_SUMMARY.md`
-- **Frontend Details:** `FRONTEND_SUMMARY.md`
-- **Gmail Setup:** `Gmail_App_Password_Setup_Guide.md`
+- **Backend Details:** [`plans/architecture/backend.md`](plans/architecture/backend.md)
+- **Frontend Details:** [`plans/architecture/frontend.md`](plans/architecture/frontend.md)
+- **Gmail Setup:** [`plans/setup/gmail-setup.md`](plans/setup/gmail-setup.md)
+- **Setup Checklist:** [`plans/setup/checklist.md`](plans/setup/checklist.md)
 - **Backend Testing:** `backend/TESTING.md`
 - **Architecture:** `backend/ARCHITECTURE.md`
+- **All Docs:** [`plans/README.md`](plans/README.md)
 
 ---
 
