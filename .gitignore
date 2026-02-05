@@ -18,8 +18,9 @@ backend/database/*.db
 backend/database/*.sqlite
 
 # Production build
-/frontend/dist
-/frontend/build
+/frontend-next/.next
+/frontend-next/out
+/frontend-next/.npm-cache
 
 # IDE
 .vscode/

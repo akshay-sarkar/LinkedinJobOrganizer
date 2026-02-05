@@ -47,10 +47,10 @@
 - [ ] Node.js installed
 
 ### Frontend Installation (We'll do this next)
-- [ ] Navigate to `frontend` folder
+- [ ] Navigate to `frontend-next` folder
 - [ ] Install dependencies: `npm install`
 - [ ] Start dev server: `npm run dev`
-- [ ] Open browser to `http://localhost:5173`
+- [ ] Open browser to `http://localhost:3000`
 
 ### Frontend Features to Build
 - [ ] Dashboard home page
@@ -157,7 +157,7 @@ SELECT * FROM jobs;
 ### Frontend (Coming Soon)
 ```bash
 # Start frontend server
-cd frontend
+cd frontend-next
 npm run dev
 
 # Build for production

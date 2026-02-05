@@ -4,8 +4,8 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         CLIENT (React Frontend)                  │
-│                     http://localhost:5173                        │
+│                       CLIENT (Next.js Frontend)                  │
+│                     http://localhost:3000                        │
 └────────────────────────────┬────────────────────────────────────┘
                              │
                              │ HTTP Requests (GET, POST, PUT, DELETE)

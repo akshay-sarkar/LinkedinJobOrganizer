@@ -18,15 +18,16 @@ A tool that reads LinkedIn job alert emails and organizes them in an easy-to-use
 - mailparser for email parsing
 
 ### Frontend
-- React (with Vite)
+- Next.js 14 (App Router)
 - Tailwind CSS
+- Firebase Auth
 - Axios for API calls
 
 ## Project Structure
 
 ```
 ├── backend/          # Express API server
-├── frontend/         # React SPA
+├── frontend-next/    # Next.js App
 └── README.md
 ```
 
@@ -55,7 +56,7 @@ cp .env.example .env
 
 3. Install frontend dependencies
 ```bash
-cd ../frontend
+cd ../frontend-next
 npm install
 ```
 
@@ -66,7 +67,7 @@ cd backend
 npm run dev
 
 # Terminal 2 - Frontend
-cd frontend
+cd frontend-next
 npm run dev
 ```
 

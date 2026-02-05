@@ -4,13 +4,13 @@
   "description": "LinkedIn Job Alert Organizer - Monorepo",
   "private": true,
   "scripts": {
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend-next && npm install",
     "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
+    "dev:frontend": "cd frontend-next && npm run dev",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "build": "cd frontend && npm run build",
-    "lint": "cd backend && npm run lint && cd ../frontend && npm run lint",
-    "format": "cd backend && npm run format && cd ../frontend && npm run format"
+    "build": "cd frontend-next && npm run build",
+    "lint": "cd backend && npm run lint && cd ../frontend-next && npm run lint",
+    "format": "cd backend && npm run format && cd ../frontend-next && npm run format"
   },
   "keywords": [
     "linkedin",

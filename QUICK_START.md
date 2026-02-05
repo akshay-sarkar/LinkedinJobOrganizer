@@ -68,7 +68,7 @@ Keep this terminal window open!
 
 ```bash
 # 1. Navigate to frontend folder
-cd frontend
+cd frontend-next
 
 # 2. Install dependencies
 npm install
@@ -79,14 +79,14 @@ npm run dev
 
 ✅ **Success!** You should see:
 ```
-➜  Local:   http://localhost:5173/
+- Local:   http://localhost:3000
 ```
 
 ---
 
 ## Step 4: Open the App
 
-1. Open browser: **http://localhost:5173**
+1. Open browser: **http://localhost:3000**
 2. You should see the LinkedIn Job Organizer dashboard!
 3. Click **"Fetch New Jobs"** button in the header
 4. Wait a few seconds
@@ -97,7 +97,7 @@ npm run dev
 ## Verification Checklist
 
 - [ ] Backend running on http://localhost:5500
-- [ ] Frontend running on http://localhost:5173
+- [ ] Frontend running on http://localhost:3000
 - [ ] Dashboard loads in browser
 - [ ] "Fetch New Jobs" button works
 - [ ] Jobs appear after fetching

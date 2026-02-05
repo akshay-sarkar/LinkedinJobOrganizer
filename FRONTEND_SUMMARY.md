@@ -1,20 +1,25 @@
-# 🎨 Frontend Complete! - React + Tailwind CSS Summary
+# 🎨 Frontend Complete! - Next.js + Tailwind CSS Summary
 
 ## ✅ What We Built
 
-The frontend is now complete with a beautiful, responsive dashboard using React and Tailwind CSS.
+The frontend is now complete with a beautiful, responsive dashboard using Next.js 14 (App Router) and Tailwind CSS.
 
-### Files Created (18 files)
+### File Structure
 
 ```
-frontend/src/
-├── 📱 Core App Files
-│   ├── main.jsx                    # Entry point
-│   ├── App.jsx                     # Main app with routing
-│   └── styles/index.css            # Global styles + Tailwind
+frontend-next/src/
+├── 📱 App Router
+│   ├── app/
+│   │   ├── layout.jsx              # Root layout (providers, sidebar, header)
+│   │   ├── page.jsx                # Dashboard (home page)
+│   │   ├── globals.css             # Global styles + Tailwind
+│   │   ├── jobs/
+│   │   │   └── page.jsx            # Jobs page
+│   │   └── settings/
+│   │       └── page.jsx            # Settings page
 │
 ├── 🎨 Reusable UI Components
-│   ├── components/common/
+│   ├── components/ui/
 │   │   ├── Button.jsx              # Styled button with variants
 │   │   ├── Card.jsx                # Container card
 │   │   ├── Input.jsx               # Form input
@@ -22,25 +27,28 @@ frontend/src/
 │   │   └── Loading.jsx             # Loading spinner
 │   │
 │   └── components/layout/
-│       ├── Layout.jsx              # Main layout wrapper
 │       ├── Header.jsx              # Top navigation + Fetch button
-│       └── Sidebar.jsx             # Left sidebar navigation
+│       ├── Sidebar.jsx             # Left sidebar navigation
+│       └── SidebarNavItem.jsx      # Sidebar nav link
 │
 ├── ✨ Feature Components
-│   ├── features/jobs/
-│   │   ├── JobCard.jsx             # Single job display
-│   │   └── JobList.jsx             # Job grid with filters
-│   │
-│   └── features/dashboard/
-│       └── StatsCard.jsx           # Statistics card
+│   └── components/features/
+│       ├── jobs/
+│       │   ├── JobCard.jsx         # Single job display
+│       │   └── JobList.jsx         # Job grid with filters
+│       └── dashboard/
+│           ├── DashboardContent.jsx # Dashboard page content
+│           └── StatsCard.jsx       # Statistics card
 │
-├── 📄 Pages
-│   ├── pages/Dashboard.jsx         # Home page with stats
-│   ├── pages/JobsPage.jsx          # All jobs page
-│   └── pages/SettingsPage.jsx      # Settings & info
+├── 🔐 Providers
+│   ├── providers/
+│   │   ├── ThemeProvider.jsx       # Dark mode theme context
+│   │   └── AuthProvider.jsx        # Firebase auth context
 │
-└── 🔌 Services
-    └── services/api.js             # Backend API integration
+└── 🔌 Lib
+    └── lib/
+        ├── api.js                  # Backend API integration
+        └── firebase.js             # Firebase configuration
 ```
 
 ---
@@ -235,13 +243,13 @@ useEffect(() => {
 }, [filters]); // Re-run when filters change
 ```
 
-### 5. **Routing (React Router)**
-Navigate between pages without page reload:
-```jsx
-<Routes>
-  <Route path="/" element={<Dashboard />} />
-  <Route path="/jobs" element={<JobsPage />} />
-</Routes>
+### 5. **Routing (Next.js App Router)**
+Navigate between pages using file-based routing:
+```
+app/
+  page.jsx        → /          (Dashboard)
+  jobs/page.jsx   → /jobs      (Jobs page)
+  settings/page.jsx → /settings (Settings page)
 ```
 
 ---
@@ -251,7 +259,7 @@ Navigate between pages without page reload:
 ### 1. Install Dependencies
 
 ```bash
-cd frontend
+cd frontend-next
 npm install
 ```
 
@@ -263,16 +271,13 @@ npm run dev
 
 You should see:
 ```
-VITE v5.0.11  ready in 500 ms
-
-➜  Local:   http://localhost:5173/
-➜  Network: use --host to expose
-➜  press h + enter to show help
+▲ Next.js 14.x.x
+- Local:   http://localhost:3000
 ```
 
 ### 3. Open Browser
 
-Visit: **http://localhost:5173**
+Visit: **http://localhost:3000**
 
 You should see the LinkedIn Job Organizer dashboard!
 
@@ -282,7 +287,7 @@ You should see the LinkedIn Job Organizer dashboard!
 
 ### Change Colors
 
-Edit `frontend/tailwind.config.js`:
+Edit `frontend-next/tailwind.config.js`:
 ```js
 colors: {
   linkedin: {
@@ -322,7 +327,8 @@ Tailwind handles this automatically with responsive classes!
 ### Frontend won't start
 ```bash
 # Clear node_modules and reinstall
-rm -rf node_modules package-lock.json
+cd frontend-next
+rm -rf node_modules package-lock.json .next
 npm install
 npm run dev
 ```
@@ -330,18 +336,19 @@ npm run dev
 ### "Cannot find module" errors
 ```bash
 # Install missing dependencies
-npm install react react-dom react-router-dom axios
+cd frontend-next
+npm install
 ```
 
 ### Tailwind styles not working
-1. Check `tailwind.config.js` exists
-2. Check `postcss.config.js` exists
-3. Check `index.css` has `@tailwind` directives
+1. Check `tailwind.config.js` exists in `frontend-next/`
+2. Check `postcss.config.js` exists in `frontend-next/`
+3. Check `globals.css` has `@tailwind` directives
 4. Restart dev server
 
 ### Backend connection error
 1. Make sure backend is running on port 5500
-2. Check `vite.config.js` proxy settings
+2. Check `next.config.js` rewrites/proxy settings
 3. Check browser console for CORS errors
 
 ---

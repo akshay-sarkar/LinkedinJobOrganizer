@@ -38,7 +38,7 @@ Introduce two distinct loading states in `JobList.jsx`:
 
 ### Implementation Details
 
-**File:** `frontend/src/features/jobs/JobList.jsx`
+**File:** `frontend-next/src/components/features/jobs/JobList.jsx`
 
 1. Add new state variables:
    - `initialLoading` (boolean) - true until first successful fetch

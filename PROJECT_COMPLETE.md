@@ -25,11 +25,10 @@ A **full-stack web application** that automatically organizes LinkedIn job alert
 - mailparser (Email parsing)
 
 **Frontend:**
-- React 18 (UI library)
+- Next.js 14 (App Router)
 - Tailwind CSS (Styling)
-- React Router (Navigation)
+- Firebase Auth (Authentication)
 - Axios (HTTP requests)
-- Vite (Build tool)
 
 ---
 
@@ -96,42 +95,43 @@ LinkedinJobOrganizer/
 │   ├── TESTING.md                       # API testing guide
 │   └── README.md                        # Backend docs
 │
-├── 🎨 Frontend (React + Tailwind)
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── common/                  # Reusable UI components
-│   │   │   │   ├── Button.jsx
-│   │   │   │   ├── Card.jsx
-│   │   │   │   ├── Input.jsx
-│   │   │   │   ├── Badge.jsx
-│   │   │   │   └── Loading.jsx
-│   │   │   └── layout/                  # Layout components
-│   │   │       ├── Layout.jsx
-│   │   │       ├── Header.jsx
-│   │   │       └── Sidebar.jsx
-│   │   ├── features/
-│   │   │   ├── jobs/                    # Job feature
-│   │   │   │   ├── JobCard.jsx
-│   │   │   │   └── JobList.jsx
-│   │   │   └── dashboard/               # Dashboard feature
-│   │   │       └── StatsCard.jsx
-│   │   ├── pages/                       # Page components
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── JobsPage.jsx
-│   │   │   └── SettingsPage.jsx
-│   │   ├── services/
-│   │   │   └── api.js                   # Backend API calls
-│   │   ├── styles/
-│   │   │   └── index.css                # Global styles
-│   │   ├── App.jsx                      # Main app
-│   │   └── main.jsx                     # Entry point
-│   ├── public/                          # Static assets
-│   ├── index.html                       # HTML template
-│   ├── package.json                     # Dependencies
-│   ├── vite.config.js                   # Vite config
-│   ├── tailwind.config.js               # Tailwind config
-│   ├── postcss.config.js                # PostCSS config
-│   └── README.md                        # Frontend docs
+├── 🎨 Frontend (Next.js + Tailwind)
+│   └── frontend-next/
+│       ├── src/
+│       │   ├── app/                         # Next.js App Router
+│       │   │   ├── layout.jsx               # Root layout
+│       │   │   ├── page.jsx                 # Dashboard (home)
+│       │   │   ├── globals.css              # Global styles
+│       │   │   ├── jobs/page.jsx            # Jobs page
+│       │   │   └── settings/page.jsx        # Settings page
+│       │   ├── components/
+│       │   │   ├── ui/                      # Reusable UI components
+│       │   │   │   ├── Button.jsx
+│       │   │   │   ├── Card.jsx
+│       │   │   │   ├── Input.jsx
+│       │   │   │   ├── Badge.jsx
+│       │   │   │   └── Loading.jsx
+│       │   │   ├── layout/                  # Layout components
+│       │   │   │   ├── Header.jsx
+│       │   │   │   ├── Sidebar.jsx
+│       │   │   │   └── SidebarNavItem.jsx
+│       │   │   └── features/
+│       │   │       ├── jobs/                # Job feature
+│       │   │       │   ├── JobCard.jsx
+│       │   │       │   └── JobList.jsx
+│       │   │       └── dashboard/           # Dashboard feature
+│       │   │           ├── DashboardContent.jsx
+│       │   │           └── StatsCard.jsx
+│       │   ├── providers/
+│       │   │   ├── ThemeProvider.jsx         # Dark mode context
+│       │   │   └── AuthProvider.jsx          # Firebase auth context
+│       │   └── lib/
+│       │       ├── api.js                   # Backend API calls
+│       │       └── firebase.js              # Firebase config
+│       ├── package.json                     # Dependencies
+│       ├── tailwind.config.js               # Tailwind config
+│       ├── postcss.config.js                # PostCSS config
+│       └── next.config.js                   # Next.js config
 │
 ├── .gitignore                           # Git ignore rules
 └── package.json                         # Root scripts
@@ -223,12 +223,12 @@ npm install
 npm run dev
 
 # Terminal 2 - Frontend
-cd frontend
+cd frontend-next
 npm install
 npm run dev
 
 # Open browser
-http://localhost:5173
+http://localhost:3000
 ```
 
 ### Or Run Both Together
@@ -258,7 +258,7 @@ npm run dev
 ### For Reference
 8. `README.md` - Project overview
 9. `backend/README.md` - Backend API reference
-10. `frontend/README.md` - Frontend component reference
+10. `frontend-next/` - Frontend component reference
 
 ---
 

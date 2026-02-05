@@ -28,8 +28,7 @@ Switches the entire application between light and dark themes. Your preference i
 - **Smooth transitions** - Animated theme switching
 
 ### Files Added
-- `frontend/src/contexts/ThemeContext.jsx` - Theme state management
-- `frontend/src/components/common/DarkModeToggle.jsx` - Toggle button
+- `frontend-next/src/providers/ThemeProvider.jsx` - Theme state management (integrated into providers)
 
 ### Files Modified
 - `tailwind.config.js` - Added `darkMode: 'class'`
@@ -380,19 +379,17 @@ Ideas for extending these features:
 
 ## 📖 Code Files Modified
 
-### New Files (2)
-1. `frontend/src/contexts/ThemeContext.jsx`
-2. `frontend/src/components/common/DarkModeToggle.jsx`
+### New Files (1)
+1. `frontend-next/src/providers/ThemeProvider.jsx` - Theme context (dark mode toggle integrated into Header)
 
 ### Modified Files (7)
-1. `frontend/tailwind.config.js` - Added dark mode
-2. `frontend/src/main.jsx` - Added ThemeProvider
-3. `frontend/src/components/layout/Layout.jsx` - Dark mode styles
-4. `frontend/src/components/layout/Header.jsx` - Dark mode + toggle button
-5. `frontend/src/components/layout/Sidebar.jsx` - Dark mode styles
-6. `frontend/src/components/common/Card.jsx` - Dark mode styles
-7. `frontend/src/components/common/Input.jsx` - Dark mode styles
-8. `frontend/src/features/jobs/JobList.jsx` - All new features
+1. `frontend-next/tailwind.config.js` - Added dark mode
+2. `frontend-next/src/app/layout.jsx` - Added ThemeProvider
+3. `frontend-next/src/components/layout/Header.jsx` - Dark mode + toggle button
+4. `frontend-next/src/components/layout/Sidebar.jsx` - Dark mode styles
+5. `frontend-next/src/components/ui/Card.jsx` - Dark mode styles
+6. `frontend-next/src/components/ui/Input.jsx` - Dark mode styles
+7. `frontend-next/src/components/features/jobs/JobList.jsx` - All new features
 
 ---
 
